@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI</title>
+  <link rel="stylesheet" href="AI.css">
+  <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <!-- topbaar -->
+    <section class="top-bar">
+      <div class="back-btn" onclick="goToDashboard()">
+        <i class="fa-solid fa-arrow-left"></i>
+      </div>
+    </section>
+    <!-- title -->
+    <section class="title">
+        <h1>Create Design through AI</h1>
+        <p>AI is automatically Create design according to user requirement</p>
+    </section>
+    <!-- main -->
+    <section class="container">
+      <!-- left -->
+      <div class="left">
+         <h2 class="section-title">Prompt</h2>
+         <p class="section-text">Describe the room or space you want</p>
+         <textarea name="type" id="Prompt" ></textarea>
+     
+      <!-- example -->
+      <div class="example">
+        <h2 class="section-title">Example Prompts</h2>
+        <!-- box 1 -->
+        <div class="example-box" onclick="setPrompt('Modern bedroom with minimal decor')">
+         Modern bedroom with minimal decor
+        </div>
+        <!-- box 2 -->
+        <div class="example-box" onclick="setPrompt('Office space with natural light and desk')">
+          Office space with natural light and desk
+         </div>
+         <!-- box 3 -->
+         <div class="example-box" onclick="setPrompt('Balcony with plants and cozy seating')">
+          Modern bedroom with minimal decor
+         </div>
+      </div>
+      </div>
+      <!-- right -->
+      <div class="right">
+        <div class="right-top">
+          <h2 class="section-title">Generated Room</h2>
+        <!-- action -->
+        <div class="action">
+          <button>2D 3D</button>
+          <button>Download</button>
+        </div>
+      </div>
+        <div class="result">
+          <img id="roomImage" src="" alt="">
+        </div>
+        <!-- control -->
+        <div class="controls">
+          <button class="generate" onclick="generateRoom()">Generate</button>
+          <button class="color-btn" onclick="toggleColors()">Change Color</button>
+          <button class="object" onclick="addObject()">Add object</button>
+        </div>
+      </div>
+      <!-- color panel -->
+      <div class="color-panel" id="colorPanel">
+       <h3>Select Room Color</h3>
+       <div class="colors"> 
+        <span class="color" style="background:#f5deb3" onclick="applyColor('#f5deb3')"></span>
+        <span class="color" style="background:#d2b48c" onclick="applyColor('#d2b48c')"></span>
+        <span class="color" style="background:#87ceeb" onclick="applyColor('#87ceeb')"></span>
+        <span class="color" style="background:#90ee90" onclick="applyColor('#90ee90')"></span>
+        <span class="color" style="background:#333" onclick="applyColor('#333')"></span>
+       </div>
+      </div>
+    </section>
+    <script>
+
+function setPrompt(text){
+
+    document.getElementById("Prompt").value = text;
+}
+function generateRoom(){
+
+    alert("AI Room Generated Successfully!");
+
+}
+const promptBox = document.getElementById("Prompt");
+
+/* EXAMPLE PROMPT CLICK */
+
+function setPrompt(text){
+
+    promptBox.value = text;
+
+}
+    </script>
+</body>
+</html>

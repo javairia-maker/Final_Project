@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>interior style</title>
+  <link rel="stylesheet" href="interir-style.css">
+  <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+  <!-- topbaar -->
+  <section class="top-bar">
+    <div class="back-btn" onclick="goToDashboard()">
+      <i class="fa-solid fa-arrow-left"></i>
+    </div>
+  </section>
+  <!-- title -->
+  <section class="title">
+    <h1>Choose your <span>interior design style</span></h1>
+    <p>Select a style that matches your taste</p>
+  </section>
+  <!-- select styles -->
+  <section class="styles">
+    <!-- card1 -->
+    <div class="card">
+      <img src="img/s2.jpg" alt="">
+      <div class="card-content">
+        <h2>Modern</h2>
+        <p>Clean lines and elegant modern furniture</p>
+        <button class="btn"  onclick="selectStyle('Modern')">Select Style</button>
+      </div>
+    </div>
+    <!-- card2 -->
+    <div class="card">
+      <img src="img/s1.jpg" alt="">
+      <div class="card-content">
+        <h2>Luxury</h2>
+        <p>Premium interior design with rich decoration</p>
+        <button class="btn"  onclick="selectStyle('Luxury')">Select Style</button>
+      </div>
+    </div>
+    <!-- card3 -->
+    <div class="card">
+      <img src="img/s3.jpg" alt="">
+      <div class="card-content">
+        <h2>Minimalist</h2>
+        <p>Simple clutter free space with modern look </p>
+        <button class="btn"  onclick="selectStyle('Minimalist')">Select Style</button>
+      </div>
+    </div>
+    <!-- card4 -->
+    <div class="card">
+      <img src="img/s4.jpg" alt="">
+      <div class="card-content">
+        <h2>Industrial</h2>
+        <p>Dark Urban theme with raw texture</p>
+        <button class="btn"  onclick="selectStyle('Industrial')">Select Style</button>
+      </div>
+    </div>
+    <!-- card5 -->
+    <div class="card">
+      <img src="img/s5.jpg" alt="">
+      <div class="card-content">
+        <h2>Scandinavian</h2>
+        <p>Light colors, natural material and functional furniture</p>
+        <button class="btn"  onclick="selectStyle('Scandinavian')">Select Style</button>
+      </div>
+    </div>
+   <!-- card6 -->
+   <div class="card">
+    <img src="img/s6.jpg" alt="">
+    <div class="card-content">
+      <h2>Japanese</h2>
+      <p>Zen inspired calm and balanced interior design</p>
+      <button class="btn"  onclick="selectStyle('Japanese')">Select Style</button>
+    </div>
+  </div>
+  <!-- card7 -->
+  <div class="card">
+    <img src="img/s7.jpg" alt="">
+    <div class="card-content">
+      <h2>Traditional</h2>
+      <p>Timeless classic and warm interior design</p>
+      <button class="btn"  onclick="selectStyle('Traditional')">Select Style</button>
+    </div>
+  </div>
+  <!-- card8 -->
+  <div class="card">
+    <img src="img/s8.jpg" alt="">
+    <div class="card-content">
+      <h2>Bohemian</h2>
+      <p>Vibrant artistic and naturally eclectic style</p>
+      <button class="btn" onclick="selectStyle('Bohemian')">Select Style</button>
+    </div>
+  </div>
+  </section>
+  <section class="ai-box">
+    <h2>Not sure which style to choose</h2>
+    <button class="ai-btn">Let AI Recommend For You</button>
+  </section>
+</body>
+<script>
+    function goBack() {
+      window.history.back();
+    }
+    function gotoStylePage() {
+      window.location.href="Dsidebar.html";
+    }
+  function selectStyle(styleName){
+
+/* Save Selected Style */
+
+localStorage.setItem(
+  "selectStyle",
+  styleName
+);
+
+/* Go To Room Page */
+
+window.location.href =
+  "room-select.html";
+
+}
+function goToDashboard(){
+
+window.location.href =
+  "Dsidebar.html";
+
+}
+
+</script>
+
+</html>

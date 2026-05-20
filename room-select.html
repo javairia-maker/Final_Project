@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room selection page</title>
+  <link rel="stylesheet" href="room-select.css">
+  <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+  <!-- topbar -->
+  <section class="top-bar">
+    <div class="back-btn" onclick="goBack()">
+      <i class="fa-solid fa-arrow-left"></i>
+    </div>
+    <div class="bread-crumb">
+      <span onclick="gotoStylePage()">Choose Style</span>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span class="active-page">Select Room</span>
+    </div>
+  </section>
+  <!-- title -->
+  <section class="title">
+    <h1>Select <span>Room Type</span></h1>
+    <p>Choose the room you want to design</p>
+  </section>
+  <!-- select styles -->
+  <section class="styles">
+    <!-- card1 -->
+    <div class="card">
+      <img src="img/r1.jpg" alt="">
+      <div class="card-content">
+        <h2>Living Room</h2>
+        <p> Design your dream living space for relaxation and comfort.</p>
+        <button class="btn">Select Room</button>
+      </div>
+    </div>
+    <!-- card2 -->
+    <div class="card">
+      <img src="img/r2.jpg" alt="">
+      <div class="card-content">
+        <h2>Bedroom</h2>
+        <p> Create a relaxing and comfortable bedroom.</p>
+        <button class="btn">Select Room</button>
+      </div>
+    </div>
+    <!-- card3 -->
+    <div class="card">
+      <img src="img/r3.jpg" alt="">
+      <div class="card-content">
+        <h2>Kitchen</h2>
+        <p> Design a modern and functional kitchen.</p>
+        <button class="btn">Select Room</button>
+      </div>
+    </div>
+    <!-- card4 -->
+    <div class="card">
+      <img src="img/r4.jpg" alt="">
+      <div class="card-content">
+        <h2>Bathroom</h2>
+        <p>Create a clean and stylish bathroom.</p>
+        <button class="btn">Select Room</button>
+      </div>
+    </div>
+    <!-- card5 -->
+    <div class="card">
+      <img src="img/r5.jpg" alt="">
+      <div class="card-content">
+        <h2>Dining Room</h2>
+        <p>Design a perfect space for family meals.</p>
+        <button class="btn">Select Room</button>
+      </div>
+    </div>
+   <!-- card6 -->
+   <div class="card">
+    <img src="img/r6.jpg" alt="">
+    <div class="card-content">
+      <h2>Study Room</h2>
+      <p>Create a productive and inspiring workspace.</p>
+      <button class="btn">Select Style</button>
+    </div>
+  </div>
+  </section>
+  <section class="ai-box">
+    <h2>Not sure which style to choose</h2>
+    <button class="ai-btn">Let AI Recommend For You</button>
+  </section>
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+    function gotoStylePage() {
+      window.location.href="interir-style.html";
+    }
+  </script>
+</body>
+</html>
