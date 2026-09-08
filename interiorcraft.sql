@@ -71,7 +71,16 @@ CREATE TABLE IF NOT EXISTS user_settings (
 CREATE TABLE rooms (
     id INT AUTO_INCREMENT PRIMARY KEY,
     room_name VARCHAR(100) NOT NULL,
-    description TEXT NOT NULL
+   ame VARCHAR(150) NOT NULL,
+    category VARCHAR(100),
+    image VARCHAR(255),
+    model_3d VARCHAR(255),
+    default_width DECIMAL(10,2) DEFAULT 100,
+    default_depth DECIMAL(10,2) DEFAULT 100,
+    default_height DECIMAL(10,2) DEFAULT 100,
+    price DECIMAL(10,2) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+); description TEXT NOT NULL
 );
 
 INSERT INTO rooms (room_name, description) VALUES
@@ -106,4 +115,91 @@ CREATE TABLE designs (
 
     FOREIGN KEY (room_id) REFERENCES rooms(id),
     FOREIGN KEY (style_id) REFERENCES styles(id)
+);
+CREATE TABLE furniture (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    category VARCHAR(100) NOT NULL,
+    image VARCHAR(255),
+    model_3d VARCHAR(255),
+    default_width DECIMAL(10,2) DEFAULT 100,
+    default_depth DECIMAL(10,2) DEFAULT 100,
+    default_height DECIMAL(10,2) DEFAULT 100,
+    price DECIMAL(10,2) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+-- Example furniture data
+
+INSERT INTO furniture
+(name, category, image, model_3d, default_width, default_depth, default_height, price)
+VALUES
+('Modern Sofa', 'Sofa', 'sofa.jpg', 'sofa.glb', 220, 90, 85, 50000),
+
+('Double Bed', 'Bed', 'bed.jpg', 'bed.glb', 200, 180, 100, 75000),
+
+('Dining Table', 'Table', 'table.jpg', 'table.glb', 160, 90, 75, 40000),
+
+('Chair', 'Chair', 'chair.jpg', 'chair.glb', 50, 50, 90, 10000),
+
+('Wardrobe', 'Storage', 'wardrobe.jpg', 'wardrobe.glb', 180, 60, 200, 65000),
+
+('Study Table', 'Table', 'study_table.jpg', 'study_table.glb', 120, 60, 75, 30000),
+
+('TV Cabinet', 'Cabinet', 'tv_cabinet.jpg', 'tv_cabinet.glb', 180, 45, 60, 35000),
+
+('Coffee Table', 'Table', 'coffee_table.jpg', 'coffee_table.glb', 100, 60, 45, 20000);
+
+CREATE TABLE design_projects (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    user_id INT NOT NULL,
+    room_id INT NOT NULL,
+    style_id INT,
+
+    design_name VARCHAR(150) NOT NULL,
+
+    room_width DECIMAL(10,2) NOT NULL,
+    room_depth DECIMAL(10,2) NOT NULL,
+    room_height DECIMAL(10,2) NOT NULL,
+
+    view_mode ENUM('2D','3D') DEFAULT '2D',
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (user_id) REFERENCES users(id)
+        ON DELETE CASCADE,
+
+    FOREIGN KEY (room_id) REFERENCES rooms(id)
+        ON DELETE CASCADE,
+
+    FOREIGN KEY (style_id) REFERENCES styles(id)
+        ON DELETE SET NULL
+);
+CREATE TABLE design_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    design_id INT NOT NULL,
+    furniture_id INT NOT NULL,
+
+    pos_x DECIMAL(10,2) DEFAULT 0,
+    pos_y DECIMAL(10,2) DEFAULT 0,
+    pos_z DECIMAL(10,2) DEFAULT 0,
+
+    rotation_x DECIMAL(10,2) DEFAULT 0,
+    rotation_y DECIMAL(10,2) DEFAULT 0,
+    rotation_z DECIMAL(10,2) DEFAULT 0,
+
+    item_width DECIMAL(10,2),
+    item_depth DECIMAL(10,2),
+    item_height DECIMAL(10,2),
+
+    FOREIGN KEY (design_id) REFERENCES design_projects(id)
+        ON DELETE CASCADE,
+
+    FOREIGN KEY (furniture_id) REFERENCES furniture(id)
+        ON DELETE CASCADE
 );
